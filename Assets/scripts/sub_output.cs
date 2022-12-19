@@ -1,4 +1,4 @@
-//rostopic pub /edie/output  -1  std_msgs/Int32MultiArray "data: [1, 8, 2]" 
+//rostopic pub /edie/output  -1  std_msgs/Int32MultiArray "data: [1]" 
 
 using System.Collections;
 using System.Collections.Generic;
@@ -12,22 +12,12 @@ namespace RosSharp.RosBridgeClient
     {
         public TextMeshProUGUI show_edie_datas;
         private bool isMessageReceived;
-        float edie_face, edie_motion, edie_voice;
-        string[] face_mod = {	" ", 
-        			"face mod1", 
-        			"face mod2",
-        			"face mod3",
-        			"face mod4"};
-        string[] motion_mod = {" ", 
-        			"motion mod1", 
-        			"motion mod2",
-        			"motion mod3",
-        			"motion mod4"};
-        string[] voice_mod = { " ", 
-        			"voice mod1", 
-        			"voice mod2",
-        			"voice mod3",
-        			"voice mod4"};
+        float edie_emotion;
+        string[] emotion_mod = {	" ", 
+        			"emotion mod1", 
+        			"emotion mod2",
+        			"emotion mod3",
+        			"emotion mod4"};
 
         protected override void Start()
         {
@@ -36,9 +26,7 @@ namespace RosSharp.RosBridgeClient
 
         protected override void ReceiveMessage(MessageTypes.Std.Int32MultiArray message)
         {
-            edie_face = message.data[0];
-            edie_motion = message.data[1];
-            edie_voice = message.data[2];
+            edie_emotion = message.data[0];
             isMessageReceived = true;
         }
 
@@ -50,20 +38,16 @@ namespace RosSharp.RosBridgeClient
         
         private void ProcessMessage()
         {
-            show_edie_datas.text =     "Edie Face: "+edie_face+" ("+face_mod[(int)edie_face]+")"+"\n"+
-            				"Edie Motion: "+edie_motion+" ("+motion_mod[(int)edie_motion]+")"+"\n"+
-            				"Edie Voice: "+edie_voice+" ("+voice_mod[(int)edie_voice]+")";
+            show_edie_datas.text =     "EDIE Emotion: "+edie_emotion+" ("+emotion_mod[(int)edie_emotion]+")";
             				
             Debug.Log("Got Message");
             
-            PlayFace((int)edie_face);
-            PlayMotion((int)edie_motion);
-            PlayVoice((int)edie_voice);
+            PlayEmotion((int)edie_emotion);
 
             isMessageReceived = false;
         }
         //----------------------------------------------------------------------------------------------
-        private void PlayFace(int mod){
+        private void PlayEmotion(int mod){
             switch(mod){
                 case 0:
                 break;
@@ -73,24 +57,5 @@ namespace RosSharp.RosBridgeClient
             }
         }
         //----------------------------------------------------------------------------------------------
-        private void PlayMotion(int mod){
-            switch(mod){
-                case 0:
-                break;
-                
-                case 1:
-                break;
-            }
-        }
-        //----------------------------------------------------------------------------------------------
-        private void PlayVoice(int mod){
-            switch(mod){
-                case 0:
-                break;
-                
-                case 1:
-                break;
-            }
-        }
     }
 }
