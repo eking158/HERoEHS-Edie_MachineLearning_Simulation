@@ -13,6 +13,21 @@ namespace RosSharp.RosBridgeClient
         public TextMeshProUGUI show_edie_datas;
         private bool isMessageReceived;
         float edie_face, edie_motion, edie_voice;
+        string[] face_mod = {	" ", 
+        			"face mod1", 
+        			"face mod2",
+        			"face mod3",
+        			"face mod4"};
+        string[] motion_mod = {" ", 
+        			"motion mod1", 
+        			"motion mod2",
+        			"motion mod3",
+        			"motion mod4"};
+        string[] voice_mod = { " ", 
+        			"voice mod1", 
+        			"voice mod2",
+        			"voice mod3",
+        			"voice mod4"};
 
         protected override void Start()
         {
@@ -35,10 +50,47 @@ namespace RosSharp.RosBridgeClient
         
         private void ProcessMessage()
         {
-            show_edie_datas.text = "Edie Face: "+edie_face+"\n"+"Edie Motion: "+edie_motion+"\n"+"Edie Voice: "+edie_voice;
+            show_edie_datas.text =     "Edie Face: "+edie_face+" ("+face_mod[(int)edie_face]+")"+"\n"+
+            				"Edie Motion: "+edie_motion+" ("+motion_mod[(int)edie_motion]+")"+"\n"+
+            				"Edie Voice: "+edie_voice+" ("+voice_mod[(int)edie_voice]+")";
+            				
             Debug.Log("Got Message");
+            
+            PlayFace((int)edie_face);
+            PlayMotion((int)edie_motion);
+            PlayVoice((int)edie_voice);
 
             isMessageReceived = false;
+        }
+        //----------------------------------------------------------------------------------------------
+        private void PlayFace(int mod){
+            switch(mod){
+                case 0:
+                break;
+                
+                case 1:
+                break;
+            }
+        }
+        //----------------------------------------------------------------------------------------------
+        private void PlayMotion(int mod){
+            switch(mod){
+                case 0:
+                break;
+                
+                case 1:
+                break;
+            }
+        }
+        //----------------------------------------------------------------------------------------------
+        private void PlayVoice(int mod){
+            switch(mod){
+                case 0:
+                break;
+                
+                case 1:
+                break;
+            }
         }
     }
 }

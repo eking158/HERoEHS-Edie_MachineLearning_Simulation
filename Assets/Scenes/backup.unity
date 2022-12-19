@@ -4090,7 +4090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 18.9}
+  m_AnchoredPosition: {x: -189.2, y: 18.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445341166
@@ -4176,7 +4176,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -217.71252, w: 0}
+  m_margin: {x: 0, y: 0, z: -596.70465, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5926,7 +5926,6 @@ MonoBehaviour:
   show_reaction_skin: {fileID: 832494441}
   show_reaction_face: {fileID: 1779094832}
   show_reaction_voice: {fileID: 1270873693}
-  show_edie_datas: {fileID: 1445341166}
 --- !u!1 &1893897869
 GameObject:
   m_ObjectHideFlags: 0
